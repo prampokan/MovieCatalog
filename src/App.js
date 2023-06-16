@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import NowPlaying from './NowPlaying'
+import Popular from './Popular'
+import Upcoming from './Upcoming';
+import TopRated from './TopRated';
+import NavigationBar from './NavigationBar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <NavigationBar/>
+      <Routes>
+       <Route path="/" element={<Popular />} />
+       <Route path="/nowplaying" element={<NowPlaying />} />
+       <Route path="/upcoming" element={<Upcoming />} />
+       <Route path="/toprated" element={<TopRated />} />
+      </Routes>
+    </Router>
   );
+
 }
 
 export default App;
